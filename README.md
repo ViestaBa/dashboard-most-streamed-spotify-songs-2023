@@ -9,19 +9,31 @@ This Power BI dashboard is structured around several key tasks:
 - Visualizing average energy% and average number of released songs within given time frame
 
 ## Steps 🔎
-| Step                   | Comment                                                                                   |
-| ---------------------- | ----------------------------------------------------------------------------------------- |
-| Download Dataset       | https://www.kaggle.com/datasets/nelgiriyewithana/top-spotify-songs-2023?resource=download |
-| Enrich Dataset         | add image URL links to track covers using Python                                          |
-| Split artist(s)_name   | in separate DataFrame to create effective filtering based on artist                       |
-| Create background      | in Power Point                                                                            |
-| Download data          | from spotify_dataset.xlsx and track_artist.xlsx                                           |
-| Import dates fom BRAVO | time interval is 1930-2023                                                                |
-| Configure ER diagram   | screenshot is provided below                                                              |
-| Build dashboard        | guide: https://www.youtube.com/watch?v=ZSrVOyKAC4Y&t=42s                                  |
+| Step                   | Comment                                                                                                              |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| Download Dataset       | by NIDULA ELGIRIYEWITHANA: https://www.kaggle.com/datasets/nelgiriyewithana/top-spotify-songs-2023?resource=download |
+| Enrich Dataset         | add image URL links to track covers using Python                                                                     |
+| Split artist(s)_name   | in separate DataFrame to create effective filtering based on artist                                                  |
+| Create background      | in Power Point                                                                                                       |
+| Download data          | from spotify_dataset.xlsx and track_artist.xlsx                                                                      |
+| Import dates fom BRAVO | time interval is 1930-2023                                                                                           |
+| Configure ER diagram   | screenshot is provided below                                                                                         |
+| Build dashboard        | guide by Injae Park: https://www.youtube.com/watch?v=ZSrVOyKAC4Y&t=42s                                               |
 
 ## Key points 🗝️
-### data scraping with Python
+### image URLs scraping with Python
+``` python
+from bing_image_urls import bing_image_urls
+import pandas as pd
+df = pd.read_excel('spotify_dataset.xlsx')
+links = []
+for i in range(len(df)):
+    links.append(bing_image_urls(' '.join(df.iloc[i][['track_name', 'artist(s)_name']]), limit=1)[0])
+df['link'] = links
+df.to_excel('spotify_dataset.xlsx')
+```
+
+### Split artist(s)_name with Python
 ``` python
 import pandas as pd
 df = pd.read_excel('spotify_dataset.xlsx')
@@ -30,7 +42,7 @@ df['artist(s)_name'] = df['artist(s)_name'].str.lower()
 df['artist(s)_name'] = df['artist(s)_name'].str.split(',')
 df = df.explode('artist(s)_name')
 df['artist(s)_name'] = df['artist(s)_name'].apply(lambda x: x.strip())
-df.to_excel('connection.xlsx')
+df.to_excel('track_artist.xlsx')
 ```
 
 ### ER diagram
@@ -51,7 +63,6 @@ df.to_excel('connection.xlsx')
 5. DAX
 6. HTML for track cover
 7. DENEB visuals: Donut, Heatmap
-
 
 
 
