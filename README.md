@@ -10,9 +10,9 @@ This Power BI dashboard is structured around several key tasks:
 
 ## Steps 🔎
 | Step                   | Comment                                                                                   |
- --------------------------------------------------------------------------------------------------------------------
+| ------------------------------------------------------------------------------------------------------------------ |
 | Download Dataset       | https://www.kaggle.com/datasets/nelgiriyewithana/top-spotify-songs-2023?resource=download |
- --------------------------------------------------------------------------------------------------------------------
+| ------------------------------------------------------------------------------------------------------------------- |
 | Enrich Dataset         | add image URL links to track covers using Python                                          |
  --------------------------------------------------------------------------------------------------------------------
 | Split artist(s)_name   | in separate DataFrame to create effective filtering based on artist                       |
