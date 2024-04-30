@@ -12,12 +12,19 @@ This Power BI dashboard is structured around several key tasks:
 | Step                   | Comment                                                                                   |
  --------------------------------------------------------------------------------------------------------------------
 | Download Dataset       | https://www.kaggle.com/datasets/nelgiriyewithana/top-spotify-songs-2023?resource=download |
+ --------------------------------------------------------------------------------------------------------------------
 | Enrich Dataset         | add image URL links to track covers using Python                                          |
+ --------------------------------------------------------------------------------------------------------------------
 | Split artist(s)_name   | in separate DataFrame to create effective filtering based on artist                       |
+ --------------------------------------------------------------------------------------------------------------------
 | Create background      | in Power Point                                                                            |
+ --------------------------------------------------------------------------------------------------------------------
 | Download data          | from spotify_dataset.xlsx and track_artist.xlsx                                           |
+ --------------------------------------------------------------------------------------------------------------------
 | Import dates fom BRAVO | time interval is 1930-2023                                                                |
+ --------------------------------------------------------------------------------------------------------------------
 | Configure ER diagram   | screenshot is provided below                                                              |
+ --------------------------------------------------------------------------------------------------------------------
 | Build dashboard        | guide: https://www.youtube.com/watch?v=ZSrVOyKAC4Y&t=42s                                  |
 
 ## Key points 🗝️
